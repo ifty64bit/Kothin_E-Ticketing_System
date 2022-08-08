@@ -9,7 +9,6 @@ namespace BusinessLogic.BOs
     public class TrainModel
     {
         public int Id { get; set; }
-        public int Id2 { get; set; }
         public string Number { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }
