@@ -17,7 +17,7 @@ namespace BusinessLogic.Services
             List<TrainModel> train = new List<TrainModel>();
             foreach (var d in data)
             {
-                train.Add(new TrainModel { Name = d.Name, Category = d.Category, Number = d.Number });
+                train.Add(new TrainModel {Id=d.Id, Name = d.Name, Category = d.Category, Number = d.Number });
             }
             return train;
         }
@@ -43,7 +43,7 @@ namespace BusinessLogic.Services
 
         public static bool Update(TrainModel obj)
         {
-            Train t = new Train { Name = obj.Name, Category = obj.Category, Number = obj.Number };
+            Train t = new Train { Id=obj.Id, Name = obj.Name, Category = obj.Category, Number = obj.Number };
             return DataFactory.TrainRepo().Update(t);
         }
 
