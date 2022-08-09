@@ -3,7 +3,7 @@ using DataLayer.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DataLayer.Repo
+namespace DataLayer.Repos
 {
     internal class AirplaneRepo : IRepo<Airplane, int>
     {

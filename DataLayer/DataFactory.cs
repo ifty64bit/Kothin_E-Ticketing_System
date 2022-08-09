@@ -39,5 +39,20 @@ namespace DataLayer
         {
             return new Manage_TrainRepo(db);
         }
+
+        public static IRepo<Airple_Schedules, int> Airple_ScheduleRepo()
+        {
+            return new Airple_SchedulesRepo(db);
+        }
+
+        public static IRepo<Airplane, int> AirplaneRepo()
+        {
+            return new AirplaneRepo(db);
+        }
+
+        public static IRepo<Car, int> CarRepo()
+        {
+            return new CarRepo(db);
+        }
     }
 }

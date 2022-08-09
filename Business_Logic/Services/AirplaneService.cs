@@ -9,7 +9,6 @@ namespace BLL.Services
     {
         public static List<AirplaneModel> GetAll()
         {
-
             var data = DataFactory.AirplaneRepo().GetAll();
             List<AirplaneModel> airplane = new List<AirplaneModel>();
             foreach (var d in data)
