@@ -19,11 +19,16 @@ namespace DataLayer.Repos
 
         public bool Create(Ticket obj)
         {
-            
-                db.Tickets.Add(obj);
+            try
+            {
+                var res = db.Tickets.Add(obj);
                 db.SaveChanges();
                 return true;
-            
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)
