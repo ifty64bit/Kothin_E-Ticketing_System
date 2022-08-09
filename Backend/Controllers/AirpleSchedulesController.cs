@@ -1,4 +1,4 @@
-﻿using BLL.BOs;
+﻿using BusinessLogic.BOs;
 using Business_Logic.Services;
 using System.Net;
 using System.Net.Http;
