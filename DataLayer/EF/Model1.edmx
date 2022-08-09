@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="Id" />
@@ -97,9 +97,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="SeatType" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="CompertmentId" Type="int" />
-          <Property Name="ClassId" Type="int" />
-          <Property Name="SeatId" Type="int" />
+          <Property Name="CompertmentId" Type="int" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="SeatId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Train_Compartments">
           <Key>
@@ -107,7 +107,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="TrainId" Type="int" />
+          <Property Name="TrainId" Type="int" Nullable="false" />
           <Property Name="Data" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Train_Schedules">
@@ -195,7 +195,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tickets_Airple_Schedules">
-          <End Role="Airple_Schedules" Type="Self.Airple_Schedules" Multiplicity="0..1" />
+          <End Role="Airple_Schedules" Type="Self.Airple_Schedules" Multiplicity="1" />
           <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Airple_Schedules">
@@ -207,7 +207,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tickets_Train_Compartments">
-          <End Role="Train_Compartments" Type="Self.Train_Compartments" Multiplicity="0..1" />
+          <End Role="Train_Compartments" Type="Self.Train_Compartments" Multiplicity="1" />
           <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Train_Compartments">
@@ -219,7 +219,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Train_Compartments_Trains">
-          <End Role="Trains" Type="Self.Trains" Multiplicity="0..1" />
+          <End Role="Trains" Type="Self.Trains" Multiplicity="1" />
           <End Role="Train_Compartments" Type="Self.Train_Compartments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Trains">
@@ -292,8 +292,7 @@
             <End Role="Trains1" EntitySet="Trains" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -397,9 +396,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SeatType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CompertmentId" Type="Int32" />
-          <Property Name="ClassId" Type="Int32" />
-          <Property Name="SeatId" Type="Int32" />
+          <Property Name="CompertmentId" Type="Int32" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <Property Name="SeatId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Airple_Schedules" Relationship="Self.FK_Tickets_Airple_Schedules" FromRole="Tickets" ToRole="Airple_Schedules" />
           <NavigationProperty Name="Train_Compartments" Relationship="Self.FK_Tickets_Train_Compartments" FromRole="Tickets" ToRole="Train_Compartments" />
         </EntityType>
@@ -409,7 +408,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TrainId" Type="Int32" />
+          <Property Name="TrainId" Type="Int32" Nullable="false" />
           <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_Train_Compartments" FromRole="Train_Compartments" ToRole="Tickets" />
           <NavigationProperty Name="Train" Relationship="Self.FK_Train_Compartments_Trains" FromRole="Train_Compartments" ToRole="Trains" />
@@ -469,7 +468,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tickets_Airple_Schedules">
-          <End Role="Airple_Schedules" Type="Self.Airple_Schedules" Multiplicity="0..1" />
+          <End Role="Airple_Schedules" Type="Self.Airple_Schedules" Multiplicity="1" />
           <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Airple_Schedules">
@@ -517,7 +516,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tickets_Train_Compartments">
-          <End Role="Train_Compartments" Type="Self.Train_Compartments" Multiplicity="0..1" />
+          <End Role="Train_Compartments" Type="Self.Train_Compartments" Multiplicity="1" />
           <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Train_Compartments">
@@ -529,7 +528,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Train_Compartments_Trains">
-          <End Role="Trains" Type="Self.Train" Multiplicity="0..1" />
+          <End Role="Trains" Type="Self.Train" Multiplicity="1" />
           <End Role="Train_Compartments" Type="Self.Train_Compartments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Trains">

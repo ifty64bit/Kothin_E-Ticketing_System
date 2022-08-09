@@ -48,9 +48,9 @@ namespace Backend.Controllers
 
         [Route("api/train_station/delete/{id}")]
         [HttpPost]
-        public HttpResponseMessage Delete(Train_StationModel t)
+        public HttpResponseMessage Delete(int id)
         {
-            var res = Train_StationService.Delete(t.Id);
+            var res = Train_StationService.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
     }

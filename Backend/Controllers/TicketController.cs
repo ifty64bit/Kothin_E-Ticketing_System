@@ -1,5 +1,5 @@
-﻿using BusinessLogic.Services;
-using BusinessLogic.BOs;
+﻿using BusinessLogic.BOs;
+using BusinessLogic.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,49 +9,53 @@ using System.Web.Http;
 
 namespace Backend.Controllers
 {
-    public class TrainScheduleController : ApiController
+    public class TicketController : ApiController
     {
-        [Route("api/train_schedule/")]
+        [Route("api/ticket/")]
         [HttpGet]
         public HttpResponseMessage GetAll()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, Train_ScheduleServices.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK, TicketServices.GetAll());
         }
 
-        [Route("api/train_schedule/{id}")]
+        [Route("api/ticket/{id}")]
         [HttpGet]
         public HttpResponseMessage GetById(int id)
         {
-            var data = Train_ScheduleServices.GetById(id);
+            var data = TicketServices.GetById(id);
             if (data == null)
+            {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
             else
+            {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
 
         }
 
-        [Route("api/train_schedule/create")]
+        [Route("api/ticket/create")]
         [HttpPost]
-        public HttpResponseMessage Create(Train_ScheduleModel t)
+        public HttpResponseMessage Create(TicketModel n)
         {
-            var res = Train_ScheduleServices.Create(t);
+            var res = TicketServices.Create(n);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
 
-        [Route("api/train_schedule/update")]
+        [Route("api/ticket/update/{id}")]
         [HttpPost]
-        public HttpResponseMessage Update(Train_ScheduleModel t)
+        public HttpResponseMessage Update(TicketModel n)
         {
-            var res = Train_ScheduleServices.Update(t);
+            var res = TicketServices.Update(n);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
-
-        [Route("api/train_schedule/delete/{id}")]
+        [Route("api/ticket/delete/{id}")]
         [HttpPost]
         public HttpResponseMessage Delete(int id)
         {
-            var res = Train_ScheduleServices.Delete(id);
+            var res = TicketServices.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
     }
 }
+

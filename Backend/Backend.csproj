@@ -88,7 +88,10 @@
     <Compile Include="Controllers\AirpleSchedulesController.cs" />
     <Compile Include="Controllers\ArplaneController.cs" />
     <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\Manage_TrainController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
+    <Compile Include="Controllers\Train_CompartmentController.cs" />
     <Compile Include="Controllers\TrainScheduleController.cs" />
     <Compile Include="Controllers\TrainStationController.cs" />
     <Compile Include="Global.asax.cs">

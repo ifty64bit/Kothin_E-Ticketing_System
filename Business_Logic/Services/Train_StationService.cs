@@ -1,4 +1,4 @@
-﻿using BusinessLogic.BOs;
+using BusinessLogic.BOs;
 using DataLayer;
 using DataLayer.EF;
 using System;
@@ -17,7 +17,7 @@ namespace BusinessLogic.Services
             List<Train_StationModel> stations = new List<Train_StationModel>();
             foreach (var d in data)
             {
-                stations.Add(new Train_StationModel { Id = d.Id, Name=d.Name });
+                stations.Add(new Train_StationModel { Id = d.Id, Name = d.Name });
             }
             return stations;
         }
@@ -42,7 +42,7 @@ namespace BusinessLogic.Services
 
         public static bool Update(Train_StationModel obj)
         {
-            Train_Stations t = new Train_Stations {Id=obj.Id, Name = obj.Name };
+            Train_Stations t = new Train_Stations { Id = obj.Id, Name = obj.Name };
             return DataFactory.Train_StationRepo().Update(t);
         }
 
