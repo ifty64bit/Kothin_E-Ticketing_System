@@ -31,5 +31,13 @@ namespace DataLayer
         {
             return new TicketRepo(db);
         }
+        public static IRepo<Train_Compartments, int> Train_CompartmentRepo()
+        {
+            return new Train_CompartmentRepo(db);
+        }
+        public static IRepo<Manage_Trains, int> Manage_TrainRepo()
+        {
+            return new Manage_TrainRepo(db);
+        }
     }
 }
