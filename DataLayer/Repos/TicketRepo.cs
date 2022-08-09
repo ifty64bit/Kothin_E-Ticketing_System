@@ -19,17 +19,11 @@ namespace DataLayer.Repos
 
         public bool Create(Ticket obj)
         {
-            try
-            {
+            
                 db.Tickets.Add(obj);
                 db.SaveChanges();
                 return true;
-            }
-            catch(Exception e)
-            {
-                System.Diagnostics.Debug.WriteLine(e);
-                return false;
-            }
+            
         }
 
         public bool Delete(int id)
