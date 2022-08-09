@@ -13,10 +13,10 @@ namespace DataLayer.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ETicketEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public ETicketEntities()
-            : base("name=ETicketEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     

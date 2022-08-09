@@ -85,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AirpleSchedulesController.cs" />
+    <Compile Include="Controllers\ArplaneController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
     <Compile Include="Controllers\TrainScheduleController.cs" />
     <Compile Include="Controllers\TrainStationController.cs" />

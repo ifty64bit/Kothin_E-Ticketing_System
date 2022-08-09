@@ -134,6 +134,18 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Airplanes_Airplanes">
+          <End Role="Airplanes" Type="Self.Airplanes" Multiplicity="1" />
+          <End Role="Airplanes1" Type="Self.Airplanes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Airplanes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Airplanes1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Airple_Schedules_Airplanes">
           <End Role="Airplanes" Type="Self.Airplanes" Multiplicity="1" />
           <End Role="Airple_Schedules" Type="Self.Airple_Schedules" Multiplicity="*" />
@@ -243,6 +255,10 @@
           <EntitySet Name="Train_Schedules" EntityType="Self.Train_Schedules" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Train_Stations" EntityType="Self.Train_Stations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trains" EntityType="Self.Trains" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Airplanes_Airplanes" Association="Self.FK_Airplanes_Airplanes">
+            <End Role="Airplanes" EntitySet="Airplanes" />
+            <End Role="Airplanes1" EntitySet="Airplanes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Airple_Schedules_Airplanes" Association="Self.FK_Airple_Schedules_Airplanes">
             <End Role="Airplanes" EntitySet="Airplanes" />
             <End Role="Airple_Schedules" EntitySet="Airple_Schedules" />
@@ -300,6 +316,8 @@
           <Property Name="Model" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Company" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SeatData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Airplanes1" Relationship="Self.FK_Airplanes_Airplanes" FromRole="Airplanes" ToRole="Airplanes1" />
+          <NavigationProperty Name="Airplane1" Relationship="Self.FK_Airplanes_Airplanes" FromRole="Airplanes1" ToRole="Airplanes" />
           <NavigationProperty Name="Airple_Schedules" Relationship="Self.FK_Airple_Schedules_Airplanes" FromRole="Airplanes" ToRole="Airple_Schedules" />
         </EntityType>
         <EntityType Name="Airple_Schedules">
@@ -426,6 +444,18 @@
           <NavigationProperty Name="Trains1" Relationship="Self.FK_Trains_Trains" FromRole="Trains" ToRole="Trains1" />
           <NavigationProperty Name="Train1" Relationship="Self.FK_Trains_Trains" FromRole="Trains1" ToRole="Trains" />
         </EntityType>
+        <Association Name="FK_Airplanes_Airplanes">
+          <End Role="Airplanes" Type="Self.Airplane" Multiplicity="1" />
+          <End Role="Airplanes1" Type="Self.Airplane" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Airplanes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Airplanes1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Airple_Schedules_Airplanes">
           <End Role="Airplanes" Type="Self.Airplane" Multiplicity="1" />
           <End Role="Airple_Schedules" Type="Self.Airple_Schedules" Multiplicity="*" />
@@ -522,7 +552,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ETicketEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Airplanes" EntityType="Self.Airplane" />
           <EntitySet Name="Airple_Schedules" EntityType="Self.Airple_Schedules" />
@@ -535,6 +565,10 @@
           <EntitySet Name="Train_Schedules" EntityType="Self.Train_Schedules" />
           <EntitySet Name="Train_Stations" EntityType="Self.Train_Stations" />
           <EntitySet Name="Trains" EntityType="Self.Train" />
+          <AssociationSet Name="FK_Airplanes_Airplanes" Association="Self.FK_Airplanes_Airplanes">
+            <End Role="Airplanes" EntitySet="Airplanes" />
+            <End Role="Airplanes1" EntitySet="Airplanes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Airple_Schedules_Airplanes" Association="Self.FK_Airple_Schedules_Airplanes">
             <End Role="Airplanes" EntitySet="Airplanes" />
             <End Role="Airple_Schedules" EntitySet="Airple_Schedules" />
@@ -573,7 +607,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ETicketEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="Model.Admin">
               <MappingFragment StoreEntitySet="Admins">
