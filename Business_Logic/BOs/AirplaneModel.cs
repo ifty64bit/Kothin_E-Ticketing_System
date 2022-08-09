@@ -1,4 +1,4 @@
-﻿namespace BLL.BOs
+﻿namespace BusinessLogic.BOs
 {
     public class AirplaneModel
     {
