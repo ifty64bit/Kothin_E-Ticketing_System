@@ -17,9 +17,9 @@ namespace DataLayer.EF
         public int Id { get; set; }
         public string Category { get; set; }
         public string SeatType { get; set; }
-        public Nullable<int> CompertmentId { get; set; }
-        public Nullable<int> ClassId { get; set; }
-        public Nullable<int> SeatId { get; set; }
+        public int CompertmentId { get; set; }
+        public int ClassId { get; set; }
+        public int SeatId { get; set; }
     
         public virtual Airple_Schedules Airple_Schedules { get; set; }
         public virtual Train_Compartments Train_Compartments { get; set; }
