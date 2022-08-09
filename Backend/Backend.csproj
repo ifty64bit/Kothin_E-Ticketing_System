@@ -89,6 +89,8 @@
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
     <Compile Include="Controllers\Train_CompartmentController.cs" />
+    <Compile Include="Controllers\TrainScheduleController.cs" />
+    <Compile Include="Controllers\TrainStationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

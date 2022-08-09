@@ -1,4 +1,4 @@
-﻿using BusinessLogic.BOs;
+using BusinessLogic.BOs;
 using DataLayer;
 using DataLayer.EF;
 using System;
