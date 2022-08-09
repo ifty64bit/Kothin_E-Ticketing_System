@@ -1,4 +1,4 @@
-﻿using BLL.BOs;
+﻿using BusinessLogic.BOs;
 using DataLayer;
 using DataLayer.EF;
 using System.Collections.Generic;

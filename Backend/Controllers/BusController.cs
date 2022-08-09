@@ -1,55 +1,61 @@
 ﻿using BusinessLogic.BOs;
-using Business_Logic.Services;
+using BusinessLogic.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
 namespace Backend.Controllers
 {
-    public class AirpleSchedulesController : ApiController
+    public class BusController : ApiController
     {
-        [Route("api/airple_schedule/")]
+        [Route("api/bus/")]
         [HttpGet]
         public HttpResponseMessage GetAll()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, Airple_SchedulesServices.GetAll());
+            return Request.CreateResponse(HttpStatusCode.OK, BusServices.GetAll());
         }
 
-        [Route("api/airple_schedule/{id}")]
+        [Route("api/bus/{id}")]
         [HttpGet]
         public HttpResponseMessage GetById(int id)
         {
-            var data = Airple_SchedulesServices.GetById(id);
+            var data = BusServices.GetById(id);
             if (data == null)
+            {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
             else
+            {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
 
         }
 
-        [Route("api/airple_schedule/create")]
+        [Route("api/bus/create")]
         [HttpPost]
-        public HttpResponseMessage Create(Airple_SchedulesModel t)
+        public HttpResponseMessage Create(BusModel t)
         {
-            var res = Airple_SchedulesServices.Create(t);
+            var res = BusServices.Create(t);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
 
-        [Route("api/airple_schedule/update")]
+        [Route("api/bus/update")]
         [HttpPost]
-        public HttpResponseMessage Update(Airple_SchedulesModel t)
+        public HttpResponseMessage Update(BusModel t)
         {
-            var res = Airple_SchedulesServices.Update(t);
+            var res = BusServices.Update(t);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
 
-        [Route("api/airple_schedule/delete/{id}")]
+        [Route("api/Bus/delete/{id}")]
         [HttpPost]
         public HttpResponseMessage Delete(int id)
         {
-            var res = Airple_SchedulesServices.Delete(id);
+            var res = BusServices.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
     }
 }
-

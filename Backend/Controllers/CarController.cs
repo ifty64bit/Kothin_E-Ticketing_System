@@ -1,5 +1,5 @@
-﻿using BLL.BOs;
-using BLL.Services;
+﻿using BusinessLogic.BOs;
+using BusinessLogic.Services;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
