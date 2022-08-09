@@ -1,5 +1,4 @@
-﻿using Business_Logic.BOs;
-using BusinessLogic.BOs;
+﻿using BusinessLogic.BOs;
 using DataLayer;
 using DataLayer.EF;
 using System;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business_Logic.Services
+namespace BusinessLogic.Services
 {
     public class Train_CompartmentServices
     {

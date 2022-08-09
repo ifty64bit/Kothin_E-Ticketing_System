@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business_Logic.Services
+namespace BusinessLogic.Services
 {
     public class Train_ScheduleServices
     {

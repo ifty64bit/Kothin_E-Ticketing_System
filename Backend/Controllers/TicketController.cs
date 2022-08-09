@@ -49,11 +49,11 @@ namespace Backend.Controllers
             var res = TicketServices.Update(n);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
-        [Route("api/train/delete/{id}")]
+        [Route("api/ticket/delete/{id}")]
         [HttpPost]
-        public HttpResponseMessage Delete(TicketModel n)
+        public HttpResponseMessage Delete(int id)
         {
-            var res = TicketServices.Delete(n.Id);
+            var res = TicketServices.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
     }

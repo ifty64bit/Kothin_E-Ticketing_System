@@ -1,7 +1,5 @@
-﻿using Business_Logic.BOs;
-using Business_Logic.Services;
+﻿using BusinessLogic.Services;
 using BusinessLogic.BOs;
-using BusinessLogic.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

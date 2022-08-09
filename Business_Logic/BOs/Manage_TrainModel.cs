@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business_Logic.BOs
+namespace BusinessLogic.BOs
 {
     public class Manage_TrainModel
     {
