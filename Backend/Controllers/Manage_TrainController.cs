@@ -40,7 +40,7 @@ namespace Backend.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK, res);
             }
 
-            [Route("api/manage_train/update")]
+            [Route("api/manage_train/update/{id}")]
             [HttpPost]
             public HttpResponseMessage Update(Manage_TrainModel t)
             {
@@ -50,9 +50,9 @@ namespace Backend.Controllers
 
             [Route("api/manage_train/delete/{id}")]
             [HttpPost]
-            public HttpResponseMessage Delete(Manage_TrainModel t)
+            public HttpResponseMessage Delete(int id)
             {
-                var res = Manage_TrainServices.Delete(t.Id);
+                var res = Manage_TrainServices.Delete(id);
                 return Request.CreateResponse(HttpStatusCode.OK, res);
             }
         }

@@ -31,6 +31,7 @@ namespace BusinessLogic.Services
                 return null;
             return new TicketModel
             {
+                Id = data.Id,
                 Category = data.Category,
                 SeatType = data.SeatType,
                 CompertmentId = data.CompertmentId,
@@ -48,7 +49,7 @@ namespace BusinessLogic.Services
 
         public static bool Update(TicketModel obj)
         {
-            Ticket t = new Ticket { Category = obj.Category, SeatType = obj.SeatType, CompertmentId = obj.CompertmentId, ClassId = obj.ClassId, SeatId =obj.SeatId };
+            Ticket t = new Ticket { Id=obj.Id, Category = obj.Category, SeatType = obj.SeatType, CompertmentId = obj.CompertmentId, ClassId = obj.ClassId, SeatId =obj.SeatId };
             return DataFactory.TicketRepo().Update(t);
         }
 
