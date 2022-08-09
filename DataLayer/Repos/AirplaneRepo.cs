@@ -26,19 +26,6 @@ namespace DataLayer.Repo
             }
         }
 
-        public bool CreateSchedule(Airple_Schedules obj)
-        {
-            try
-            {
-                db.Airple_Schedules.Add(obj);
-                db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
 
         public bool Delete(int id)
         {
@@ -54,19 +41,7 @@ namespace DataLayer.Repo
             }
         }
 
-        public bool DeleteSchedule(int id)
-        {
-            try
-            {
-                db.Airple_Schedules.Remove((from n in db.Airple_Schedules where n.Id == id select n).SingleOrDefault());
-                db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+
 
         public Airplane Get(int id)
         {
@@ -78,15 +53,6 @@ namespace DataLayer.Repo
             return db.Airplanes.ToList();
         }
 
-        public List<Airple_Schedules> GetAllSchedules()
-        {
-            return db.Airple_Schedules.ToList();
-        }
-
-        public Airple_Schedules GetSchedule(int id)
-        {
-            return db.Airple_Schedules.Find(id);
-        }
 
         public bool Update(Airplane obj)
         {
@@ -100,31 +66,6 @@ namespace DataLayer.Repo
             return false;
         }
 
-
-
-        public bool UpdateSchedule(Airple_Schedules obj)
-        {
-            Airple_Schedules old = db.Airple_Schedules.Where(x => x.Id == obj.Id).SingleOrDefault();
-            if (old != null)
-            {
-                db.Entry(old).CurrentValues.SetValues(obj);
-                db.SaveChanges();
-                return true;
-            }
-            return false;
-        }
-
-
-
-        Airplane IRepo<Airplane, int>.Get(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        List<Airplane> IRepo<Airplane, int>.GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 
 
