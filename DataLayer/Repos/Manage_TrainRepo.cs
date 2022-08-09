@@ -28,7 +28,7 @@ namespace DataLayer.Repos
         {
             try
             {
-                db.Manage_Trains.Add(obj);
+                var res=db.Manage_Trains.Add(obj);
                 db.SaveChanges();
                 return true;
             }

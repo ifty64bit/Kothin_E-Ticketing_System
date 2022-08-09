@@ -40,7 +40,8 @@ namespace Business_Logic.Services
         public static bool Create(Manage_TrainModel obj)
         {
             Manage_Trains t = new Manage_Trains { TrainId = obj.TrainId, StationId = obj.StationId, ScheduleId= obj.ScheduleId };
-            return DataFactory.Manage_TrainRepo().Create(t);
+            var res=DataFactory.Manage_TrainRepo().Create(t);
+            return res;
         }
 
         public static bool Update(Manage_TrainModel obj)

@@ -41,7 +41,7 @@ namespace Backend.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
 
-        [Route("api/train_compartment/update")]
+        [Route("api/train_compartment/update/{id}")]
         [HttpPost]
         public HttpResponseMessage Update(Train_CompartmentModel t)
         {
