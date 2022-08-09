@@ -21,13 +21,12 @@ namespace DataLayer.Repos
         {
             try
             {
-                db.Tickets.Add(obj);
+                var res = db.Tickets.Add(obj);
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch
             {
-                System.Diagnostics.Debug.WriteLine(e);
                 return false;
             }
         }
