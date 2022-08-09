@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.BOs;
 using DataLayer;
+using DataLayer.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,43 +13,43 @@ namespace Business_Logic.Services
     {
         public static List<Train_ScheduleModel> GetAll()
         {
-            var data = DataFactory.TrainRepo().GetAll();
-            List<Train_ScheduleModel> train = new List<Train_ScheduleModel>();
+            var data = DataFactory.Train_ScheduleRepo().GetAll();
+            List<Train_ScheduleModel> schedule = new List<Train_ScheduleModel>();
             foreach (var d in data)
             {
-                train.Add(new Train_ScheduleModel { Name = d.Name, Category = d.Category, Number = d.Number });
+                schedule.Add(new Train_ScheduleModel { Id = d.Id, ArraivalTime = d.ArraivalTime, DepartureTime = d.DepartureTime });
             }
-            return train;
+            return schedule;
         }
 
-        public static TrainModel GetById(int id)
+        public static Train_ScheduleModel GetById(int id)
         {
-            var data = DataFactory.TrainRepo().Get(id);
+            var data = DataFactory.Train_ScheduleRepo().Get(id);
             if (data == null)
                 return null;
-            return new TrainModel
+            return new Train_ScheduleModel
             {
-                Name = data.Name,
-                Category = data.Category,
-                Number = data.Number
+                Id = data.Id,
+                ArraivalTime = data.ArraivalTime,
+                DepartureTime = data.DepartureTime
             };
         }
 
-        public static bool Create(TrainModel obj)
+        public static bool Create(Train_ScheduleModel obj)
         {
-            Train t = new Train { Name = obj.Name, Category = obj.Category, Number = obj.Number };
-            return DataFactory.TrainRepo().Create(t);
+            Train_Schedules t = new Train_Schedules { ArraivalTime = obj.ArraivalTime, DepartureTime = obj.DepartureTime };
+            return DataFactory.Train_ScheduleRepo().Create(t);
         }
 
-        public static bool Update(TrainModel obj)
+        public static bool Update(Train_ScheduleModel obj)
         {
-            Train t = new Train { Name = obj.Name, Category = obj.Category, Number = obj.Number };
-            return DataFactory.TrainRepo().Update(t);
+            Train_Schedules t = new Train_Schedules { Id = obj.Id, ArraivalTime = obj.ArraivalTime, DepartureTime = obj.DepartureTime };
+            return DataFactory.Train_ScheduleRepo().Update(t);
         }
 
         public static bool Delete(int id)
         {
-            return DataFactory.TrainRepo().Delete(id);
+            return DataFactory.Train_ScheduleRepo().Delete(id);
         }
     }
 }

@@ -27,5 +27,9 @@ namespace DataLayer
         {
             return new Train_StationRepo(db);
         }
+        public static IRepo<Ticket, int> TicketRepo()
+        {
+            return new TicketRepo(db);
+        }
     }
 }

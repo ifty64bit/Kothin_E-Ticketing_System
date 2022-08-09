@@ -41,13 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BOs\Ticket.cs" />
+    <Compile Include="BOs\TicketModel.cs" />
     <Compile Include="BOs\TrainModel.cs" />
     <Compile Include="BOs\Train_ScheduleModel.cs" />
     <Compile Include="BOs\Train_StationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TicketServices.cs" />
     <Compile Include="Services\TrainServices.cs" />
     <Compile Include="Services\Train_ScheduleServices.cs" />
+    <Compile Include="Services\Train_StationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
