@@ -17,7 +17,7 @@ namespace BusinessLogic.Services
             List<Train_CompartmentModel> compartment = new List<Train_CompartmentModel>();
             foreach (var d in data)
             {
-                compartment.Add(new Train_CompartmentModel { Id = d.Id, Type = d.Type, TrainId = d.TrainId, Data=d.Data });
+                compartment.Add(new Train_CompartmentModel { Id = d.Id, Type = d.Type, TrainId = (int)d.TrainId, Data=d.Data });
             }
             return compartment;
         }
@@ -31,7 +31,7 @@ namespace BusinessLogic.Services
             {
                 Id = data.Id,
                 Type = data.Type,
-                TrainId = data.TrainId,
+                TrainId = (int)data.TrainId,
                 Data = data.Data,
             };
         }
@@ -51,6 +51,19 @@ namespace BusinessLogic.Services
         public static bool Delete(int id)
         {
             return DataFactory.Train_CompartmentRepo().Delete(id);
+        }
+
+        public static List<Train_CompartmentModel> Search(int id, string type)
+        {
+            var compartments = DataFactory.Train_CompartmentRepo().GetAll();
+            
+            List<Train_CompartmentModel> list = new List<Train_CompartmentModel>();
+            var data = (from c in compartments where c.Type == type && c.TrainId==id select c).ToList();
+            foreach(var d in data)
+            {
+                list.Add(new Train_CompartmentModel { TrainId = (int)d.TrainId, Id = d.Id, Type = d.Type, Data = d.Data });
+            }
+            return list;
         }
     }
 }

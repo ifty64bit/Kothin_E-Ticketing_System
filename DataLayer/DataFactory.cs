@@ -11,7 +11,7 @@ namespace DataLayer
 {
     public class DataFactory
     {
-        static readonly ETicketEntities db = new ETicketEntities();
+        static ETicketEntities db = new ETicketEntities();
 
         public static IRepo<Train, int> TrainRepo()
         {
@@ -65,6 +65,16 @@ namespace DataLayer
         public static IRepo<Customer, int> CustomerRepo()
         {
             return new CustomerRepo(db);
+        }
+
+        public static IAuthRepo<Customer> AuthRepo()
+        {
+            return new CustomerRepo(db);
+        }
+
+        public static IRepo<Token, int> TokenRepo()
+        {
+            return new TokenRepo(db);
         }
     }
 }

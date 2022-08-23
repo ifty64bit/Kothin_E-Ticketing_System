@@ -16,7 +16,7 @@ namespace DataLayer.EF
     public partial class ETicketEntities : DbContext
     {
         public ETicketEntities()
-            : base("name=Entities")
+            : base("name=ETicketEntities")
         {
         }
     
@@ -33,6 +33,7 @@ namespace DataLayer.EF
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Manage_Trains> Manage_Trains { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Token> Tokens { get; set; }
         public DbSet<Train_Compartments> Train_Compartments { get; set; }
         public DbSet<Train_Schedules> Train_Schedules { get; set; }
         public DbSet<Train_Stations> Train_Stations { get; set; }

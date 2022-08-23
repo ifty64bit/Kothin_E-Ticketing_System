@@ -8,7 +8,7 @@ using DataLayer.Interfaces;
 
 namespace DataLayer.Repos
 {
-    internal class CustomerRepo : IRepo<Customer, int>
+    internal class CustomerRepo : IRepo<Customer, int>, IAuthRepo<Customer>
     {
         ETicketEntities db;
         public CustomerRepo(ETicketEntities db)
@@ -65,5 +65,9 @@ namespace DataLayer.Repos
             }
             return false;
         }
+        public Customer Validate(string username, string password)
+        {
+            return db.Customers.Where(x=>x.Username.Equals(username) && x.Password.Equals(password)).SingleOrDefault();
         }
+    }
 }

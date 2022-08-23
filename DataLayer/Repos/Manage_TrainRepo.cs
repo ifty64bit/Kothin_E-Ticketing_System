@@ -16,7 +16,8 @@ namespace DataLayer.Repos
         }
         public List<Manage_Trains> GetAll()
         {
-            return db.Manage_Trains.ToList();
+            var data = db.Manage_Trains.ToList();
+            return data;
         }
 
         public Manage_Trains Get(int id)

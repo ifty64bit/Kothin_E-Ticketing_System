@@ -24,8 +24,6 @@ namespace DataLayer.EF
         public string Company { get; set; }
         public string SeatData { get; set; }
     
-        public virtual Airplane Airplanes1 { get; set; }
-        public virtual Airplane Airplane1 { get; set; }
         public virtual ICollection<Airple_Schedules> Airple_Schedules { get; set; }
     }
 }

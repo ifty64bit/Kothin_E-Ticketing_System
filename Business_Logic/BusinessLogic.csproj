@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,8 +48,11 @@
     <Compile Include="BOs\BusModel.cs" />
     <Compile Include="BOs\CarModel.cs" />
     <Compile Include="BOs\CustomerModel.cs" />
+    <Compile Include="BOs\LoginModel.cs" />
     <Compile Include="BOs\Manage_TrainModel.cs" />
+    <Compile Include="BOs\SearchModel.cs" />
     <Compile Include="BOs\TicketModel.cs" />
+    <Compile Include="BOs\TokenModel.cs" />
     <Compile Include="BOs\TrainModel.cs" />
     <Compile Include="BOs\Train_CompartmentModel.cs" />
     <Compile Include="BOs\Train_ScheduleModel.cs" />
@@ -57,11 +61,13 @@
     <Compile Include="Services\AdminServices.cs" />
     <Compile Include="Services\AirplaneService.cs" />
     <Compile Include="Services\Airple_SchedulesServices.cs" />
+    <Compile Include="Services\AuthServices.cs" />
     <Compile Include="Services\BusServices.cs" />
     <Compile Include="Services\CarService.cs" />
     <Compile Include="Services\CustomerServices.cs" />
     <Compile Include="Services\Manage_TrainServices.cs" />
     <Compile Include="Services\TicketServices.cs" />
+    <Compile Include="Services\TrainSearchService.cs" />
     <Compile Include="Services\TrainServices.cs" />
     <Compile Include="Services\Train_CompartmentServices.cs" />
     <Compile Include="Services\Train_ScheduleServices.cs" />

@@ -1,4 +1,5 @@
-﻿using BusinessLogic.BOs;
+﻿using Backend.Attribute;
+using BusinessLogic.BOs;
 using BusinessLogic.Services;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,16 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Backend.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*", SupportsCredentials = true)]
     public class CustomerController : ApiController
     {
         [Route("api/customer/")]
         [HttpGet]
+        [Customer]
         public HttpResponseMessage GetAll()
         {
             return Request.CreateResponse(HttpStatusCode.OK, CustomerServices.GetAll());
@@ -38,8 +42,16 @@ namespace Backend.Controllers
         [HttpPost]
         public HttpResponseMessage Create(CustomerModel t)
         {
-            var res = CustomerServices.Create(t);
-            return Request.CreateResponse(HttpStatusCode.OK, res);
+            if(ModelState.IsValid)
+            {
+                var res = CustomerServices.Create(t);
+                return Request.CreateResponse(HttpStatusCode.OK, res);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "Model Not Validate");
+            }
+            
         }
 
         [Route("api/customer/update")]

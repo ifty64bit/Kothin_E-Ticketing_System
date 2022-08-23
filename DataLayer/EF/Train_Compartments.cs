@@ -21,7 +21,7 @@ namespace DataLayer.EF
     
         public int Id { get; set; }
         public string Type { get; set; }
-        public int TrainId { get; set; }
+        public Nullable<int> TrainId { get; set; }
         public string Data { get; set; }
     
         public virtual ICollection<Ticket> Tickets { get; set; }

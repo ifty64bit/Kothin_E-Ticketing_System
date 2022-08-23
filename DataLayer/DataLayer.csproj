@@ -88,6 +88,9 @@
     <Compile Include="EF\Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Token.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Train.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -100,7 +103,9 @@
     <Compile Include="EF\Train_Stations.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAuthRepo.cs" />
     <Compile Include="Interfaces\IRepo.cs" />
+    <Compile Include="Interfaces\ISearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\AdminRepo.cs" />
     <Compile Include="Repos\AirplaneRepo.cs" />
@@ -110,6 +115,7 @@
     <Compile Include="Repos\CustomerRepo.cs" />
     <Compile Include="Repos\Manage_TrainRepo.cs" />
     <Compile Include="Repos\TicketRepo.cs" />
+    <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\TrainRepo.cs" />
     <Compile Include="Repos\Train_CompartmentRepo.cs" />
     <Compile Include="Repos\Train_ScheduleRepo.cs" />

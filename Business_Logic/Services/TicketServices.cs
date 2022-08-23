@@ -18,7 +18,7 @@ namespace BusinessLogic.Services
             List<TicketModel> ticket = new List<TicketModel>();
             foreach (var d in data)
             {
-                ticket.Add(new TicketModel { Id=d.Id, Category = d.Category, SeatType = d.SeatType, CompertmentId = d.CompertmentId, ClassId = d.ClassId, SeatId = d.SeatId });
+                ticket.Add(new TicketModel { Id=d.Id, Category = d.Category, SeatType = d.SeatType, CompertmentId = (int)d.CompertmentId, ClassId = (int)d.ClassId, SeatId = (int)d.SeatId });
             }
             return ticket;
         }
@@ -34,9 +34,9 @@ namespace BusinessLogic.Services
                 Id = data.Id,
                 Category = data.Category,
                 SeatType = data.SeatType,
-                CompertmentId = data.CompertmentId,
-                ClassId = data.ClassId,
-                SeatId = data.SeatId
+                CompertmentId = (int)data.CompertmentId,
+                ClassId = (int)data.ClassId,
+                SeatId = (int)data.SeatId
             };
         }
 

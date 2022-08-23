@@ -6,10 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using System.Web.Http.Cors;
 
 namespace Backend.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*", SupportsCredentials = true)]
     public class Train_CompartmentController : ApiController
     {
         [Route("api/train_compartment/")]
@@ -54,6 +55,24 @@ namespace Backend.Controllers
             var res = Train_CompartmentServices.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
+
+        [Route("api/train_compartment/search")]
+        [HttpPost]
+        public HttpResponseMessage Search(SearchModel obj)
+        {
+            var data = Train_CompartmentServices.Search(obj.id, obj.type);
+            if (data == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            else
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+
+        }
+    }
+
+    public class SearchModel
+    {
+        public int id;
+        public string type;
     }
 
 

@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Backend.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*", SupportsCredentials = true)]
     public class TrainController : ApiController
     {
         [Route("api/train/")]
@@ -51,6 +53,16 @@ namespace Backend.Controllers
         public HttpResponseMessage Delete(int id)
         {
             var res = TrainServices.Delete(id);
+            return Request.CreateResponse(HttpStatusCode.OK, res);
+        }
+
+        [Route("api/train/search/{id}")]
+        [HttpGet]
+        public HttpResponseMessage Search(string id)
+        {
+            int from = Int32.Parse(id.Split(',')[0]);
+            int to = Int32.Parse(id.Split(',')[1]);
+            var res = TrainSearchService.TrainSearch(from, to);
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
     }
